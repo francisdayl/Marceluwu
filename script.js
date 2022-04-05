@@ -1,10 +1,21 @@
 var cont = 10;
 var myAudio = new Audio('heartbeat.mp3');
 var size = 200;
+var ind = 0
+var listHeart = ["heart.svg","heartB.svg","heartO.svg","heartY.svg","heartP.svg","heartG.svg"]
 
+function changeHeart(){
+    if(ind==listHeart.length-1){
+        ind=0;
+    }
+    else{
+        ind++;
+    }
+}
 
 function makeHeart(posX,posY,zind){
-    document.getElementById('Cuerpo').innerHTML+= `<div class="heart" style= 'display:flex; flex-direction:column; justify-content:center ;position:absolute; top:${posY-(Math.round(size/2))}px; left:${posX-(Math.round(size/2))}px; width: ${size}px; height: ${size}px; z-index: ${zind};'> <span style='font-size:${Math.round(size/14)}px;'> Te Amo bb uwu </span><span style='font-size:${Math.round(size/14)}px;'> M y D </div>`
+    var bcg =  listHeart[ind];
+    document.getElementById('Cuerpo').innerHTML+= `<div class="heart" style= 'display:flex;background-image: url("${bcg}"); flex-direction:column; justify-content:center ;position:absolute; top:${posY-(Math.round(size/2))}px; left:${posX-(Math.round(size/2))}px; width: ${size}px; height: ${size}px; z-index: ${zind};'> <span style='font-size:${Math.round(size/14)}px;'> Te Amo bb uwu </span><span style='font-size:${Math.round(size/14)}px;'> M y D </div>`
 }
 
 function doSomething(event){
@@ -96,6 +107,10 @@ window.addEventListener("keyup",(event)=>{
     if(event.key.toUpperCase()=="Z"){
         if(document.getElementById('Cuerpo').hasChildNodes)
             document.getElementById('Cuerpo').removeChild(document.getElementById('Cuerpo').lastChild);
+    }
+    if(event.key.toUpperCase()=="C"){
+        changeHeart();
+        alert(`${ind+1} de ${listHeart.length}`)
     }
     
 })

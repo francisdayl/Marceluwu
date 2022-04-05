@@ -40,7 +40,7 @@ body{
 }
 
 .heart{
-    background-image: url('heart.svg');
+    
     width: 100px;
     height: 100px;
     animation: heartbeat 1s infinite;
