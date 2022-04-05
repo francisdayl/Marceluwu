@@ -1,9 +1,10 @@
 var cont = 10;
 var myAudio = new Audio('heartbeat.mp3');
+var size = 200;
 
 
 function makeHeart(posX,posY,zind){
-    document.getElementById('Cuerpo').innerHTML+= `<div class="heart" style= 'display:flex; flex-direction:column; justify-content:center ;position:absolute; top:${posY-75}px; left:${posX-75}px; width: 150px; height: 150px; z-index: ${zind};'> <span > Te Amo bb uwu </span><span> M y D </div>`
+    document.getElementById('Cuerpo').innerHTML+= `<div class="heart" style= 'display:flex; flex-direction:column; justify-content:center ;position:absolute; top:${posY-(Math.round(size/2))}px; left:${posX-(Math.round(size/2))}px; width: ${size}px; height: ${size}px; z-index: ${zind};'> <span style='font-size:${Math.round(size/14)}px;'> Te Amo bb uwu </span><span style='font-size:${Math.round(size/14)}px;'> M y D </div>`
 }
 
 function doSomething(event){
@@ -25,6 +26,7 @@ window.addEventListener("keyup",(event)=>{
         console.log(opc);
         myAudio.pause()
         if(opc===1){
+            size = 200;
             //M
             makeHeart(150,150,10);
             makeHeart(150,250,10);
@@ -74,8 +76,6 @@ window.addEventListener("keyup",(event)=>{
             document.getElementById('Cuerpo').innerHTML= `<div class="heart" style= 'display:flex; flex-direction:column; justify-content:center ;position:absolute; top:${-75}px; left:${315}px; width: 800px; height: 800px; z-index: ${1000};'> <span class="h2"> Te Amo bb uwu </span><span class="h2"> M y D </div>`
             myAudio.loop=true;
             myAudio.play();
-            
-            
         }
 
     }
@@ -84,6 +84,18 @@ window.addEventListener("keyup",(event)=>{
         myAudio.loop=false;
         myAudio.pause();
         
+    }
+    if(event.key.toUpperCase()=="+"){ 
+        size+=50;
+    }
+    if(event.key.toUpperCase()=="-"){
+        if(size>150){
+            size-=50;
+        }       
+    }
+    if(event.key.toUpperCase()=="Z"){
+        if(document.getElementById('Cuerpo').hasChildNodes)
+            document.getElementById('Cuerpo').removeChild(document.getElementById('Cuerpo').lastChild);
     }
     
 })
