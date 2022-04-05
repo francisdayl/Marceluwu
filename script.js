@@ -75,7 +75,7 @@ window.addEventListener("keyup",(event)=>{
             makeHeart(1100,500,10);
             makeHeart(1020,530,10);
 
-            document.getElementById('Cuerpo').innerHTML+= `<div class="heart" style= 'display:flex; flex-direction:column; justify-content:center ;position:absolute; top:${160}px; left:${475}px; width: 450px; height: 450px; z-index: ${1000};'> <span > Te Amo bb uwu </span><span> M y D </div>`
+            document.getElementById('Cuerpo').innerHTML+= `<div class="heart" style= 'display:flex; flex-direction:column; justify-content:center;background-image: url("${listHeart[ind]}") ;position:absolute; top:${160}px; left:${475}px; width: 450px; height: 450px; z-index: ${1000};'> <span > Te Amo bb uwu </span><span> M y D </div>`
             myAudio.loop=true;
             myAudio.play();
 
@@ -84,7 +84,7 @@ window.addEventListener("keyup",(event)=>{
 
         }
         else{
-            document.getElementById('Cuerpo').innerHTML= `<div class="heart" style= 'display:flex; flex-direction:column; justify-content:center ;position:absolute; top:${-75}px; left:${315}px; width: 800px; height: 800px; z-index: ${1000};'> <span class="h2"> Te Amo bb uwu </span><span class="h2"> M y D </div>`
+            document.getElementById('Cuerpo').innerHTML= `<div class="heart" style= 'display:flex; flex-direction:column; justify-content:center;background-image: url("${listHeart[ind]}") ;position:absolute; top:${-75}px; left:${315}px; width: 800px; height: 800px; z-index: ${1000};'> <span class="h2"> Te Amo bb uwu </span><span class="h2"> M y D </div>`
             myAudio.loop=true;
             myAudio.play();
         }
